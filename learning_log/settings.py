@@ -61,7 +61,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'learning_logs/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -149,10 +149,10 @@ if cwd == '/app' or cwd[:4] == '/tmp':
 
         #只允许heroku托管这个项目
         ALLOWED_HOSTS = ['while10-study.herokuapp.com']
+        #不要在环境中启动调试
         DEBUG = False
-    else:
-        #允许所有网站托管
-        ALLOWED_HOSTS = ['*']
+        ALLOWED_HOSTS = ['localhost']
+
 
 
     #静态资产配置
