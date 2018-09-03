@@ -145,13 +145,12 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     #让request.is_secure()承认 X-FORWARDED-PROTO头
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    if cwd == '/app':
 
-        #只允许heroku托管这个项目
-        ALLOWED_HOSTS = ['while10-study.herokuapp.com']
-        #不要在环境中启动调试
-        DEBUG = False
-        ALLOWED_HOSTS = ['localhost']
+    #只允许heroku托管这个项目
+    ALLOWED_HOSTS = ['while10-study.herokuapp.com']
+    #不要在环境中启动调试
+    DEBUG = False
+    ALLOWED_HOSTS = ['localhost']
 
 
 
