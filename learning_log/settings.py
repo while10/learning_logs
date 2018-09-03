@@ -145,8 +145,15 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     #让request.is_secure()承认 X-FORWARDED-PROTO头
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    #支持所有的主机头（host header）
-    ALLOWED_HOSTS = ['*']
+    if cwd == '/app':
+
+        #只允许heroku托管这个项目
+        ALLOWED_HOSTS = ['while10-study.herokuapp.com']
+        DEBUG = False
+    else:
+        #允许所有网站托管
+        ALLOWED_HOSTS = ['*']
+
 
     #静态资产配置
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
