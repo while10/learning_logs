@@ -61,7 +61,8 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'learning_logs/templates')],
+
+        'DIRS': [os.path.join(BASE_DIR, 'learning_log/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -150,9 +151,6 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     ALLOWED_HOSTS = ['while10-study.herokuapp.com']
     #不要在环境中启动调试
     DEBUG = False
-    ALLOWED_HOSTS = ['localhost']
-
-
 
     #静态资产配置
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -160,3 +158,8 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     STATICFILES_DIR = (
         os.path.join(BASE_DIR, 'static'),
     )
+else:
+    #非在线环境
+    DEBUG = False
+
+    ALLOWED_HOSTS = ['localhost']
